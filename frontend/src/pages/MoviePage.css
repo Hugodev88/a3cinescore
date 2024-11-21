@@ -1,0 +1,61 @@
+/* Container geral para a página do filme */
+.movie-page {
+    background-color: #222; /* Cor de fundo escura */
+    color: white;
+}
+
+/* Estilo da imagem de capa */
+.movie-header {
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Título do filme sobre a imagem */
+.movie-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Descrição do filme */
+.movie-description {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+/* Estilos dos cards de avaliação */
+.review-card {
+    background-color: #333;
+    border: 1px solid #444;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.review-card strong {
+    font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .movie-title {
+        font-size: 2rem;
+    }
+
+    .movie-description {
+        font-size: 1rem;
+    }
+
+    .review-card {
+        padding: 12px;
+    }
+}

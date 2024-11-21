@@ -1,0 +1,81 @@
+.add-movie {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .movie-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .movie-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .movie-form input,
+  .movie-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .movie-form textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .movie-form input:focus,
+  .movie-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    margin-top: 15px;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+
+  .preview-image {
+    max-width: 200px; /* Define a largura máxima */
+    max-height: 200px; /* Define a altura máxima */
+    object-fit: cover; /* Ajusta a imagem para caber dentro do espaço definido */
+    border: 1px solid #ccc; /* Adiciona uma borda leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    margin-top: 10px; /* Espaço acima da imagem */
+}
