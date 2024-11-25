@@ -1,10 +1,5 @@
 header {
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999; */
-    background-color: #333; /* Escolha sua cor */
+    background-color: #000000;
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -15,15 +10,28 @@ header {
 }
 
 a{
-    color: #fff;
+    color: #ffffff;
     font-style: bold;
     text-decoration: none;
-    padding: 15px;
+    margin: 15px;
 }
 
-Link:hover {
-    background-color: #807f7f;
-    color: #333;
+.link:hover {
+    color: #8e44ad;
     border-radius: 15px;
     transition: 0.5s;
+}
+
+
+.link {
+    font-size: 1em;
+}
+
+.title {
+    font-size: 30px;
+}
+
+input {
+    padding: 5px;
+    border-radius: 10px;
 }

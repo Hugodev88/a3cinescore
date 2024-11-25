@@ -11,9 +11,9 @@ router.get('/', ReviewController.showReviews)
 router.get('/:id', ReviewController.getReviewById)
 
 // U
-router.put('/edit/:id', ReviewController.editReview)
+router.put('/edit/:id', verifyToken, ReviewController.editReview)
 
 // D
-router.delete('/delete/:id', ReviewController.deleteReview)
+router.delete('/delete/:id', verifyToken, ReviewController.deleteReview)
 
 module.exports = router

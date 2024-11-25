@@ -21,14 +21,19 @@ const imageStorage = multer.diskStorage({
 const imageUpload = multer({
     storage: imageStorage,
     fileFilter(req, file, cb) {
-        if (file.fieldname !== 'photo') { // Nome do campo deve ser 'photo'
-            return cb(new Error('Unexpected field'), false);
+        try {
+            if (file.fieldname !== 'photo') {
+                return cb(new Error('Nome do campo inválido. Deve ser "photo".'), false);
+            }
+            if (!file.originalname.toLowerCase().match(/\.(png|jpg)$/)) {
+                return cb(new Error('Por favor, envie apenas arquivos com extensão jpg ou png.'), false);
+            }
+            cb(null, true);
+        } catch (error) {
+            cb(error, false);
         }
-        if (!file.originalname.match(/\.(png|jpg)$/)) {
-            return cb(new Error('Por favor, envie apenas jpg ou png.'), false);
-        }
-        cb(undefined, true);
     }
+    
 });
 
 module.exports = { imageUpload };

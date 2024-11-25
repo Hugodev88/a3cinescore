@@ -22,30 +22,28 @@ const MovieList = () => {
     if (movies.length === 0) return <p>Não há filmes disponíveis.</p>;
 
     return (
-        <div className="container mt-4">
-            <div className="row justify-content-center">
+        <div className="movie-container">
+            <div className="movie-grid">
                 {movies.map((movie) => (
-                    <div key={movie.id} className="col-6 col-sm-4 col-md-3 mb-4">
-                        <div className="card h-100 bg-dark text-white">
-                            {movie.photo && (
-                                <img
-                                    src={`${process.env.REACT_APP_API}/images/movies/${movie.photo}`}
-                                    className="card-img-top movie-img"
-                                    alt={`Poster de ${movie.title}`}
-                                    onError={() => console.error(`Erro ao carregar a imagem: ${movie.photo}`)}
-                                />
-                            )}
-                            <div className="card-body">
-                                <h5 className="card-title">{movie.title}</h5>
-                                <p className="card-text">{movie.description}</p>
-                                <div className="actions d-flex justify-content-between">
-                                    <Link to={`/movies/${movie._id}`} className="btn btn-danger">
-                                        Ver detalhes
-                                    </Link>
-                                    <Link to={`/review/${movie._id}`} className="btn btn-danger">
-                                        Avaliar
-                                    </Link>
-                                </div>
+                    <div key={movie.id} className="movie-card">
+                        {movie.photo && (
+                            <img
+                                src={`${process.env.REACT_APP_API}/images/movies/${movie.photo}`}
+                                className="movie-img"
+                                alt={`Poster de ${movie.title}`}
+                                onError={() => console.error(`Erro ao carregar a imagem: ${movie.photo}`)}
+                            />
+                        )}
+                        <div className="card-body">
+                            <h5 className="card-title">{movie.title}</h5>
+                            <p className="card-text">{movie.director}</p>
+                            <div className="actions">
+                                <Link to={`/movies/${movie._id}`} className="btn">
+                                    Ver mais
+                                </Link>
+                                <Link to={`/review/${movie._id}`} className="btn">
+                                    Avaliar
+                                </Link>
                             </div>
                         </div>
                     </div>

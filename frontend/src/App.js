@@ -13,6 +13,7 @@ import ProfilePage from './pages/ProfilePage';
 import Footer from './components/Footer';
 import MovieForm from './components/MovieForm';
 import ReviewForm from './components/ReviewForm';
+import ReviewPage from './pages/ReviewPage';
 
 // Importando o AuthContext
 import { AuthContext } from './contexts/AuthContext';
@@ -47,6 +48,7 @@ const App = () => {
                         <Route path="/movies/:id" element={<MoviePage />} />
                         <Route path="/movies/add" element={<MovieForm showMessage={showMessage} />} />
                         <Route path="/review/:id" element={<ReviewForm showMessage={showMessage} />} />
+                        <Route path="/reviews/:id" element={<ReviewPage />} />
                         {/* /movies/add */}
                         <Route path="/login" element={<LoginPage showMessage={showMessage} />} />
                         <Route path="/register" element={<RegisterPage showMessage={showMessage} />} />

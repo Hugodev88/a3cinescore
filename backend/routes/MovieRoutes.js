@@ -11,7 +11,7 @@ router.post('/add', verifyToken, imageUpload.single("photo"), MovieController.ad
 // R
 router.get('/', MovieController.showMovies)
 router.get('/:id', MovieController.getMovieById)
-router.get('/:id/reviews', ReviewController.getMovieReviews)
+router.get('/:id/reviews', MovieController.getMovieReviews)
 
 // U
 router.put('/edit/:id', verifyToken, MovieController.editMovie)

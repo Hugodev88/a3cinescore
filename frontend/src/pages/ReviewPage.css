@@ -1,0 +1,60 @@
+/* ReviewPage.css */
+
+/* Página de avaliação */
+.review-page {
+    background-color: #1e1e1e;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Card da avaliação */
+.review-card {
+    background-color: #2d2d2d; /* Fundo escuro */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito hover */
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Título da avaliação */
+.review-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e91e63; /* Cor vibrante */
+    margin-bottom: 16px;
+}
+
+/* Nome do usuário */
+.review-user {
+    font-size: 1.1rem;
+    color: #f1f1f1; /* Nome do usuário em branco suave */
+    margin-bottom: 12px;
+}
+
+/* Descrição da avaliação */
+.review-description {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Rodapé com pontuação e data */
+.review-footer {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-top: 20px;
+}
+
+/* Estilo de carregamento */
+.loading {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    font-size: 1.5rem;
+}

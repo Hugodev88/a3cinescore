@@ -1,46 +1,111 @@
 /* src/components/MovieList.css */
-.movie-img {
-    width: 100%;
-    height: 300px; /* Define uma altura padrão */
-    object-fit: cover; /* Corta ou ajusta a imagem mantendo o aspecto */
-    border-radius: 8px;
+
+/* Container principal */
+.movie-container {
+    padding: 16px;
 }
 
-.card {
-    border: none;
+/* Grid de filmes */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Card do filme */
+.movie-card {
+    background-color: #1e1e1e;
+    color: #ffffff;
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem do filme */
+.movie-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Corpo do card */
 .card-body {
+    padding: 16px;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Garante que os elementos se alinhem em coluna */
-    justify-content: space-between; /* Distribui espaço uniformemente */
-    height: 100%; /* Faz o card ocupar todo o espaço disponível */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: #e91e63; /* Rosa vibrante */
 }
 
 .card-text {
-    height: 60px; /* Define uma altura fixa para a descrição */
-    overflow: hidden; /* Oculta texto que exceda o limite */
-    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
-    white-space: normal; /* Permite que o texto quebre em várias linhas */
+    font-size: 12px;
     margin-bottom: 16px;
-    font-size: 10px;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
+/* Ações */
 .actions {
-    margin-top: auto; /* Empurra os botões para o final do card */
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 16px; /* Espaço acima dos botões */
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+/* Botões - Estilo base */
+.actions .btn {
+    margin: 0 auto;
+    flex: 1;
+    background-color: #8e44ad; /* Roxo forte */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Mostra que é clicável */
 }
 
-.col-6.col-sm-4.col-md-3 {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Faz as colunas terem a mesma altura */
+/* Efeito de hover nos botões */
+.actions .btn:hover {
+    background-color: #e91e63; /* Cor ao passar o mouse */
 }
+
+/* Estilização personalizada para os botões dentro do card */
+.movie-card .btn {
+    background-color: #8e44ad; /* Roxo forte */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 8px 8px; /* Ajusta o espaço interno */
+    font-size: 0.9rem; /* Texto menor */
+    cursor: pointer; /* Mostra que é clicável */
+    transition: background-color 0.3s ease; /* Animação suave */
+}
+
+.movie-card .btn:hover {
+    background-color: #732d91; /* Cor ao passar o mouse */
+    color: #f1f1f1; /* Texto levemente mais claro */
+}
+

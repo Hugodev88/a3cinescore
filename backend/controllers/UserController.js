@@ -1,6 +1,7 @@
 const createUserToken = require('../helpers/create-user-token')
 const getToken = require('../helpers/get-token')
 const getUserByToken = require('../helpers/get-user-by-token')
+const Review = require('../models/Review')
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -11,14 +12,18 @@ module.exports = class UserController {
 
     static async register (req, res) {
         const { name, email, password, confirmpassword} = req.body
+        const reviews = []
 
+        console.log(confirmpassword)
         // Validação dos campos obrigatórios
+        
         if (!name) return res.status(422).json({ message: 'O nome é obrigatório.' });
         if (!email) return res.status(422).json({ message: 'O email é obrigatório.' });
         if (!password) return res.status(422).json({ message: 'A senha é obrigatória.' });
         if (!confirmpassword) return res.status(422).json({ message: 'A confirmação de senha é obrigatória.' });
         if (password !== confirmpassword) return res.status(422).json({ message: 'A senha e a confirmação de senha precisam ser iguais.' });
-
+        
+        
         const userExists = await User.findOne({ email: email})
 
         if (userExists) {
@@ -33,6 +38,7 @@ module.exports = class UserController {
             name,
             email,
             password: passwordHash,
+            reviews
         })
 
         try {
@@ -181,4 +187,56 @@ module.exports = class UserController {
             return
         }
     }
+
+    static async getUserProfile(req, res) {
+        try {
+
+            const token = getToken(req); 
+
+            const user = await getUserByToken(token);
+
+            
+            if (!user) {
+                return res.status(404).json({ message: "Usuário não encontrado." });
+            }
+
+            const { password, ...userData } = user.toObject();
+            return res.status(200).json(userData);
+        } catch (error) {
+            console.error('Erro ao buscar o perfil do usuário:', error);
+            return res.status(500).json({ message: "Erro ao buscar o perfil. Tente novamente." });
+        }
+    }
+
+    static async getUserReviews(req, res) {
+        try {
+            const id = req.params.id;
+    
+            if (!ObjectId.isValid(id)) {
+                return res.status(422).json({ message: "Id inválido." });
+            }
+    
+            const user = await User.findById(id).select("-password");
+    
+            if (!user) {
+                return res.status(404).json({ message: "Usuário não encontrado." });
+            }
+
+            // Buscando as avaliações com populate para preencher o campo 'user' com os dados completos
+            const reviews = await Review.find({ user: user._id })  // Use diretamente o campo `user`, sem a necessidade de `_id`
+                .populate("user", "name email") // Popula as informações do usuário (nome e email)
+                .sort("-createdAt");  // Ordena pela data de criação das reviews
+
+    
+            if (reviews.length === 0) {
+                return res.status(200).json({ reviews: [], message: "Nenhuma avaliação encontrada." });
+            }
+    
+            res.status(200).json({ reviews });
+        } catch (error) {
+            res.status(500).json({ message: "Erro ao buscar avaliações do usuário" });
+        }
+    }
+    
+    
 }

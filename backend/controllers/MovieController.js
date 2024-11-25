@@ -2,6 +2,7 @@ const getToken = require('../helpers/get-token');
 const getUserByToken = require('../helpers/get-user-by-token');
 const Movie = require('../models/Movie');
 const mongoose = require('mongoose');
+const Review = require('../models/Review');
 const { ObjectId } = mongoose.Types;
 
 module.exports = class MovieController {
@@ -15,6 +16,8 @@ module.exports = class MovieController {
             res.status(500).json({ message: error.message || 'Erro ao carregar filmes' });
         }
     }
+
+    // Método para buscar filmes pelo nome
 
     // Método para adicionar um novo filme
     static async addMovie(req, res) {
@@ -57,7 +60,6 @@ module.exports = class MovieController {
     static async getMovieById(req, res) {
         const movieId = req.params.id;
 
-        // Verificação do ID de filme
         if (!ObjectId.isValid(movieId)) {
             return res.status(422).json({ message: 'Id de filme inválido' });
         }
@@ -79,7 +81,6 @@ module.exports = class MovieController {
     static async editMovie(req, res) {
         const movieId = req.params.id;
 
-        // Verificação do ID de filme
         if (!ObjectId.isValid(movieId)) {
             return res.status(422).json({ message: 'Id de filme inválido' });
         }
@@ -122,7 +123,6 @@ module.exports = class MovieController {
     static async deleteMovie(req, res) {
         const movieId = req.params.id;
 
-        // Verificação do ID de filme
         if (!ObjectId.isValid(movieId)) {
             return res.status(422).json({ message: 'Id de filme inválido' });
         }
@@ -137,17 +137,28 @@ module.exports = class MovieController {
             const token = getToken(req);
             const user = await getUserByToken(token);
 
-            // Verificar se o usuário autenticado tem permissão para deletar o filme
             if (movie.user._id.toString() !== user._id.toString()) {
                 return res.status(403).json({ message: 'Você não tem permissão para excluir este filme' });
             }
 
-            // Exclui o filme
             await movie.remove();
 
             res.status(200).json({ message: 'Filme removido com sucesso' });
         } catch (error) {
             res.status(500).json({ message: error.message || 'Erro ao excluir filme' });
+        }
+    }
+
+    static async getMovieReviews(req, res) {
+
+        try {
+            const movieId  = req.params.id;
+
+            const reviews = await Review.find({"movie": movieId }).sort('-createdAt');
+
+            res.status(200).json({ reviews });
+        } catch (error) {
+            res.status(500).json({ message: "Erro ao buscar avaliações do filme" });
         }
     }
 };

@@ -1,0 +1,80 @@
+/* Container das avaliações */
+.review-container {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Estilo de cada cartão de avaliação */
+.review-card {
+    background-color: #2d2f36; /* Fundo mais suave */
+    color: white; /* Texto branco */
+    border-radius: 6px; /* Bordas arredondadas */
+    padding: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.9rem; /* Texto mais compacto */
+}
+
+/* Cabeçalho da avaliação (Título e botões de ação) */
+.review-card .d-flex {
+    margin-bottom: 8px;
+    font-size: 1rem; /* Tamanho do título */
+}
+
+.review-card strong {
+    font-size: 1rem;
+}
+
+/* Detalhes da avaliação (Filme, Nota, Data) */
+.review-details p {
+    font-size: 0.9rem; /* Texto menor para as informações */
+    display: flex;
+    padding: 2px;
+    margin: 0;
+}
+
+.review-details p strong {
+    font-weight: bold;
+}
+
+/* Botões de ação (Editar, Excluir) */
+.btn-warning, .btn-danger {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Estilo do botão "Ver Mais Detalhes" */
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+li {
+    list-style: none;
+}

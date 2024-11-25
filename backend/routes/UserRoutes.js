@@ -9,8 +9,9 @@ router.post('/register', UserController.register)
 router.post('/login', UserController.login)
 
 // READ
+router.get('/profile', verifyToken, UserController.getUserProfile)
 router.get('/user/:id', UserController.getUserById)
-router.get('/:id/reviews', verifyToken, ReviewController.getUserReviews)
+router.get('/user/:id/reviews', UserController.getUserReviews)
 
 // UPDATE
 router.patch('/edit/:id', verifyToken, UserController.editUser)

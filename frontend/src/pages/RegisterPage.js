@@ -7,7 +7,7 @@ const RegisterPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [confirmpassword, setConfirmPassword] = useState('');
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -15,21 +15,23 @@ const RegisterPage = () => {
         console.log("TESTE")
 
         // Validação simples: as senhas devem ser iguais
-        if (password !== confirmPassword) {
+        if (password !== confirmpassword) {
             toast.error('As senhas não coincidem!');
             return;
         }
 
         // Verificação se algum campo está vazio
-        if (!name || !email || !password || !confirmPassword) {
+        if (!name || !email || !password || !confirmpassword) {
             toast.error('Todos os campos são obrigatórios!');
             return;
         }
 
         try {
             // Enviando os dados para o backend
-            await api.post('/register', { name, email, password, confirmPassword });
+            await api.post('/register', { name, email, password, confirmpassword });
             toast.success('Registro realizado com sucesso!');
+
+            
         } catch (error) {
             toast.error('Erro no registro.');
         }
@@ -82,7 +84,7 @@ const RegisterPage = () => {
                         id="confirmPassword"
                         className="form-control"
                         placeholder="Confirmar Senha"
-                        value={confirmPassword}
+                        value={confirmpassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>

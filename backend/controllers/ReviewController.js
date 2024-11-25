@@ -3,7 +3,9 @@ const getUserByToken = require('../helpers/get-user-by-token');
 const Movie = require('../models/Movie');
 const Review = require('../models/Review');
 const mongoose = require('mongoose');
+const User = require('../models/User');
 const { ObjectId } = mongoose.Types;
+
 
 module.exports = class ReviewController {
 
@@ -20,27 +22,30 @@ module.exports = class ReviewController {
     // Método para adicionar uma avaliação
     static async addReview(req, res) {
         const { title, score, review, movieId } = req.body;
-    
+
         // Verifica se todos os campos necessários estão presentes
         if (!title || !score || !review || !movieId) {
             return res.status(422).json({ message: "Todos os campos são obrigatórios" });
         }
-    
+
         try {
-            const token = getToken(req);
-            
-            // Verifica se o token é válido e se o usuário existe
-            const user = await getUserByToken(token);
-            if (!user) {
+            // Verifica se o usuário está autenticado
+            const userAuthenticated = await getUserByToken(getToken(req));
+            if (!userAuthenticated) {
                 return res.status(401).json({ message: "Usuário não autenticado" });
             }
-    
+
+            
+
+            const user = await User.findById(userAuthenticated);
+
+            // Encontra o filme pelo movieId
             const movie = await Movie.findById(movieId);
             if (!movie) {
                 return res.status(404).json({ message: "Filme não encontrado" });
             }
-    
-            // Cria uma nova avaliação
+
+            // Cria a nova avaliação
             const newReview = new Review({
                 title,
                 score,
@@ -48,54 +53,25 @@ module.exports = class ReviewController {
                 movie: { _id: movie._id, name: movie.title },
                 user: { _id: user._id, name: user.name }
             });
-    
+
+            // Salva a avaliação
             await newReview.save();
-    
-            // Inicializa o campo de reviews no usuário se não estiver definido
-            if (!user.reviews) {
-                user.reviews = [];
-            }
-    
-            // Adiciona o ID da nova avaliação aos arrays de reviews do usuário e do filme
-            user.reviews.push(newReview._id);
+
+            // Atualiza o filme e o usuário com a nova avaliação
             movie.reviews.push(newReview._id);
-    
-            // Salva as alterações no usuário e no filme
+            user.reviews.push(newReview._id);
+
             await movie.save();
             await user.save();
-    
-            // Retorna uma resposta de sucesso
+
             return res.status(201).json({ message: "Avaliação criada com sucesso", newReview });
-    
+
         } catch (error) {
             console.error("Erro ao adicionar avaliação:", error);
-            // Retorna uma resposta de erro genérica
             return res.status(500).json({ message: "Erro ao adicionar avaliação" });
         }
-    }
 
-    // Método para buscar as avaliações de um usuário
-    static async getUserReviews(req, res) {
-        try {
-            const token = getToken(req);
-            const user = await getUserByToken(token);
-            const reviews = await Review.find({ "user._id": user._id }).sort('-createdAt');
 
-            res.status(200).json({ reviews });
-        } catch (error) {
-            res.status(500).json({ message: "Erro ao buscar avaliações do usuário" });
-        }
-    }
-
-    // Método para buscar avaliações de um filme
-    static async getMovieReviews(req, res) {
-        try {
-            const { movieId } = req.params;
-            const reviews = await Review.find({ "movie._id": movieId }).sort('-createdAt');
-            res.status(200).json({ reviews });
-        } catch (error) {
-            res.status(500).json({ message: "Erro ao buscar avaliações do filme" });
-        }
     }
 
     // Método para atualizar uma avaliação
