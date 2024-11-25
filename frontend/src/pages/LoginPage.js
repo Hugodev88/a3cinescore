@@ -24,7 +24,7 @@ const LoginPage = ({ showMessage }) => {
 
     return (
         <div className="container mt-5">
-            <h2>Login</h2>
+            <h2 className='text-white'>Login</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"

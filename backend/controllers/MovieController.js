@@ -18,6 +18,34 @@ module.exports = class MovieController {
     }
 
     // Método para buscar filmes pelo nome
+    static async searchMovie(req, res) {
+        const inputValue = req.query.name; // Pega o parâmetro "name" da query string
+    
+        if (!inputValue || typeof inputValue !== 'string' || inputValue.trim() === '') {
+            return res.status(400).json({ message: "Por favor, forneça um nome de filme válido para buscar." });
+        }
+    
+        try {
+            // Utiliza uma expressão regular para procurar filmes com o nome fornecido
+            const movies = await Movie.find({ 
+                title: { 
+                    $regex: inputValue.trim(),  // Usando trim para remover espaços extras
+                    $options: 'i'  // Ignora diferenças de maiúsculas/minúsculas
+                }
+            });
+    
+            // if (movies.length === 0) {
+            //     return res.status(404).json({ message: "Nenhum filme encontrado." });
+            // }
+    
+            res.status(200).json(movies); // Retorna os filmes encontrados
+        } catch (error) {
+            console.error('Erro ao buscar filmes:', error.message);
+            res.status(500).json({ message: error.message || 'Erro ao buscar filmes.' });
+        }
+    }
+    
+
 
     // Método para adicionar um novo filme
     static async addMovie(req, res) {

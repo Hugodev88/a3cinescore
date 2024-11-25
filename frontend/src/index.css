@@ -5,6 +5,31 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%; /* Garante que o body ocupe 100% da altura da janela */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos toda a altura da janela */
+}
+
+.main-content {
+  flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+}
+
+footer {
+  background-color: #333; /* Exemplo de cor para o footer */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
 h1 {
   color: #16479d;
   margin-bottom: 1em;
@@ -15,3 +40,4 @@ h1 {
   font-weight: bold;
   color: #16479d;
 }
+

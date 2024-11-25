@@ -1,0 +1,58 @@
+/* Estilo geral do contêiner */
+.searchform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #1c1c1c; /* Fundo escuro */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do campo de busca */
+.searchinput[type="text"] {
+    width: 250px; /* Largura padrão */
+    padding: 8px 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+/* Placeholder estilizado */
+.searchinput[type="text"]::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Estilo do botão de busca */
+.searchbutton[type="submit"]{
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Azul padrão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efeito hover no botão */
+.searchbutton[type="submit"]:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .searchinput[type="text"] {
+        width: 180px; /* Largura reduzida */
+    }
+
+    .searchbutton[type="submit"] {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

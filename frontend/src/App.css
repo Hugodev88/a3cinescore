@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(33, 36, 41); /* Cor de fundo escura */
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #24242c; /* Certifica que o fundo cobre toda a altura */
+}
+
+.container {
+    flex: 1; /* Expande para ocupar o espaço entre Header e Footer */
+    background-color: transparent; /* Ou mantenha conforme necessário */
+}
+
+footer {
+    background-color: #1c1c1c; /* Fundo do footer igual ao restante */
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    width: 100%;
+}

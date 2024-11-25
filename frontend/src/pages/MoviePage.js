@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import api from '../services/api';
 import './MoviePage.css'; // Importe a folha de estilos
-import { format } from 'date-fns';
+import { toast } from 'react-toastify';
 
 function MoviePage() {
     const [movie, setMovie] = useState({});
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         api.get(`/movies/${id}`)
@@ -20,15 +21,46 @@ function MoviePage() {
     }, [id]);
 
     useEffect(() => {
-
         api.get(`/movies/${id}/reviews`)
             .then((response) => {
                 setReviews(response.data.reviews);
             })
             .catch((err) => {
-                console.error("Erro ao carregar as avaliacoes:", err);
+                console.error("Erro ao carregar as avaliações:", err);
             });
     }, [movie]);
+
+    useEffect(() => {
+        if (reviews.length > 0) {
+            const fetchUsers = async () => {
+                try {
+                    const fetchedUsers = [];
+
+                    for (let review of reviews) {
+                        const response = await api.get(`/user/${review.user}`);
+                        fetchedUsers.push(response.data.user);
+                    }
+                    setUsers(fetchedUsers);
+                } catch (error) {
+                    console.error("Erro ao carregar os usuários:", error);
+                    toast.error('Erro ao carregar os usuários. Tente novamente mais tarde.');
+                }
+            };
+
+            fetchUsers();
+        }
+    }, [reviews]);
+
+    const getBadgeColor = (score) => {
+        if (score >= 8) {
+          return '#4CAF50'; // Um verde mais suave (menos saturado)
+        } else if (score >= 5) {
+          return '#FFEB3B'; // Um amarelo mais suave (menos saturado)
+        } else {
+          return '#F44336'; // Um vermelho mais suave (menos saturado)
+        }
+      };
+      
 
     return (
         <div className="movie-page">
@@ -58,30 +90,46 @@ function MoviePage() {
                                 <p><strong>Ano de Lançamento:</strong> {new Date(movie.releaseDate).toLocaleDateString('pt-BR')}</p>
                                 <p><strong>Gênero:</strong> {movie.genre}</p>
                             </div>
+                            <div className="actionsMoviePage">
+                                <Link to={`/review/${movie._id}`} className="btn">Avaliar</Link>
+                            </div>
                         </div>
 
                         {/* Avaliações */}
                         <div className="movie-reviews mt-4">
                             <h4 className="review-title">Avaliações</h4>
                             <div>
-                                {movie.reviews && movie.reviews.length > 0 ? (
-                                    reviews.map((review) => (
-                                        <Link to={`/reviews/${review._id}`} key={review._id}>
-                                            <div className="review-card mb-4 p-4 rounded bg-dark text-white shadow-lg">
-                                                <strong>{review.title}:</strong> {review.score}
-                                            </div>
-                                        </Link>
-                                    ))
+                            {movie.reviews && movie.reviews.length > 0 ? (
+                                reviews.map((review, index) => (
+                                    <Link to={`/reviews/${review._id}`} key={review._id}>
+                                    <div className="review-card p-3 rounded bg-dark text-white shadow-sm">
+                                        <div className="d-flex justify-content-between align-items-center">
+                                        <strong>{review.title}</strong>
+                                        {/* Calcula a cor da pontuação com base no valor */}
+                                        <span
+                                            className="badge"
+                                            style={{
+                                            backgroundColor: getBadgeColor(review.score),
+                                            
+                                            }}
+                                        >
+                                            {review.score}
+                                        </span>
+                                        </div>
+                                        <small>Por: {users[index] ? users[index].name : 'Carregando...'}</small>
+                                    </div>
+                                    </Link>
+                                ))
                                 ) : (
-                                    <p>Sem avaliações.</p>
+                                <p>Sem avaliações.</p>
                                 )}
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 }
 

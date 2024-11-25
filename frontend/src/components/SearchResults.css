@@ -1,0 +1,51 @@
+/* Estilo para o poster do filme */
+.movie-poster {
+    width: 60px; /* Aumentado um pouco para melhor visibilidade */
+    height: 90px; /* Para padronizar a proporção */
+    border-radius: 5px;
+    object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente */
+}
+
+/* Informações do filme */
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px; /* Espaçamento vertical entre título e nota */
+}
+
+.movie-title {
+    font-size: 14px; /* Ajustado para um estilo mais compacto */
+    font-weight: 600; /* Negrito leve para maior legibilidade */
+    color: #fff;
+    margin: 0; /* Remove margens desnecessárias */
+}
+
+.movie-rating {
+    font-size: 12px; /* Menor para manter o layout compacto */
+    font-weight: 500;
+}
+
+/* Estilo para cada item da lista */
+.list-group-item {
+    padding: 8px 12px; /* Padding reduzido para compactação */
+    margin: 5px 0;
+    background-color: #2c2c2c; /* Cor escura para contraste */
+    color: white;
+    border: 1px solid #444; /* Borda sutil para separar itens */
+    text-decoration: none; /* Remove o sublinhado do Link */
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #3d3d3d; /* Fundo levemente mais claro ao hover */
+}
+
+/* Badge de avaliação */
+.badge {
+    font-size: 10px; /* Ajuste para compactar o estilo */
+    padding: 5px 8px; /* Reduzido para um visual mais elegante */
+    border-radius: 12px; /* Deixa a borda redonda */
+}
