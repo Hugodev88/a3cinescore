@@ -92,6 +92,7 @@ function MoviePage() {
                             </div>
                             <div className="actionsMoviePage">
                                 <Link to={`/review/${movie._id}`} className="btn">Avaliar</Link>
+                                <Link to={`/movies/edit/${movie._id}`} className="btn">Editar</Link>
                             </div>
                         </div>
 

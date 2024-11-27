@@ -1,0 +1,112 @@
+/* Estilo principal da página de login */
+.login-page .container {
+    max-width: 400px;
+    background-color: #1e1e1e; /* Fundo escuro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    margin-top: 50px;
+    color: white; /* Texto branco */
+}
+
+.profilecard h3 {
+    color: #fff;
+}
+
+/* Cabeçalho */
+.login-page h2 {
+    text-align: center;
+    color: #e91e63; /* Rosa vibrante */
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-page .form-control {
+    background-color: #2d2d2d; /* Fundo escuro dos inputs */
+    color: white; /* Texto branco */
+    border: 1px solid #444; /* Borda mais discreta */
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Cor do placeholder */
+.login-page .form-control::placeholder {
+    color: #bbb; /* Placeholder mais claro */
+    font-size: 0.95rem; /* Ajuste do tamanho da fonte */
+}
+
+/* Ao focar */
+.login-page .form-control:focus {
+    border-color: #e91e63; /* Rosa vibrante ao focar */
+    outline: none;
+    box-shadow: 0 0 5px #e91e63; /* Brilho leve */
+}
+
+/* Botão de login */
+.login-page .btn-danger {
+    width: 100%;
+    background-color: #8e44ad; /* Roxo forte */
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-page .btn-danger:hover {
+    background-color: #732d91; /* Roxo mais escuro */
+    transform: scale(1.02); /* Efeito de crescimento leve */
+}
+
+/* Link para registro */
+.login-page .btn-link {
+    color: #e91e63; /* Rosa vibrante */
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-page .btn-link:hover {
+    color: #ff4081; /* Rosa mais claro */
+    text-decoration: underline;
+}
+
+/* Margens e espaçamentos */
+.login-page .mt-3 {
+    margin-top: 20px;
+}
+
+.login-page .form-control.mt-3 {
+    margin-top: 15px;
+}
+
+/* Texto do rodapé */
+.login-page p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #bbb; /* Texto mais claro */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .login-page .container {
+        padding: 20px;
+    }
+
+    .login-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-page .btn-danger {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .login-page p {
+        font-size: 0.8rem;
+    }
+}

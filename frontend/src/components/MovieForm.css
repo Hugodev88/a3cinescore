@@ -1,81 +1,108 @@
+/* Estilos gerais */
 .add-movie {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .movie-form .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .movie-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .movie-form input,
-  .movie-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .movie-form textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  .movie-form input:focus,
-  .movie-form textarea:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
-  
-  .submit-button {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error-message {
-    margin-top: 15px;
-    color: red;
-    text-align: center;
-    font-weight: bold;
-  }
-  
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #2d2d2d; /* Fundo escuro para o formulário */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  color: white; /* Cor do texto */
+}
 
-  .preview-image {
-    max-width: 200px; /* Define a largura máxima */
-    max-height: 200px; /* Define a altura máxima */
-    object-fit: cover; /* Ajusta a imagem para caber dentro do espaço definido */
-    border: 1px solid #ccc; /* Adiciona uma borda leve */
-    border-radius: 8px; /* Bordas arredondadas */
-    margin-top: 10px; /* Espaço acima da imagem */
+h2 {
+  text-align: center;
+  color: #e91e63; /* Cor vibrante para o título */
+  margin-bottom: 20px;
+}
+
+/* Estilo dos campos de formulário */
+.movie-form .form-group {
+  margin-bottom: 15px;
+}
+
+.movie-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #bbb; /* Cor suave para os rótulos */
+}
+
+.movie-form input,
+.movie-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444; /* Cor de borda suave */
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #333; /* Fundo mais escuro para os campos */
+  color: white;
+}
+
+/* Estilo para o placeholder */
+.movie-form input::placeholder,
+.movie-form textarea::placeholder {
+  color: #bbb; /* Cor clara e suave para o placeholder */
+  opacity: 1; /* Garante que o placeholder tenha boa visibilidade */
+}
+
+/* Estilo para a área de texto */
+.movie-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Estilos de foco nos campos */
+.movie-form input:focus,
+.movie-form textarea:focus {
+  outline: none;
+  border-color: #e91e63; /* Cor vibrante ao focar */
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.3); /* Efeito suave */
+}
+
+/* Estilo do botão de envio */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #e91e63; /* Cor vibrante para o botão */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #c2185b; /* Cor mais escura ao passar o mouse */
+  transform: scale(1.05); /* Efeito de crescimento */
+}
+
+/* Mensagem de erro */
+.error-message {
+  margin-top: 15px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilos da imagem de pré-visualização */
+.preview-image {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+  border: 1px solid #444; /* Borda suave */
+  border-radius: 8px; /* Bordas arredondadas */
+  margin-top: 10px;
+}
+
+/* Ajuste para o formulário em dispositivos móveis */
+@media (max-width: 768px) {
+  .add-movie {
+      padding: 15px;
+  }
+
+  .submit-button {
+      padding: 12px;
+  }
 }

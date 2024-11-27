@@ -1,60 +1,133 @@
-/* ReviewPage.css */
-
 /* Página de avaliação */
 .review-page {
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #1e1e1e; /* Fundo escuro */
+    color: white; /* Texto branco */
     min-height: 100vh;
+    padding: 20px;
 }
 
 /* Card da avaliação */
-.review-card {
-    background-color: #2d2d2d; /* Fundo escuro */
+.review-page .review-card {
+    background-color: #2d2d2d; /* Fundo escuro do card */
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito hover */
-.review-card:hover {
+/* Efeito hover do card */
+.review-page .review-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Título da avaliação */
-.review-title {
+.review-page .review-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #e91e63; /* Cor vibrante */
+    color: #e91e63; /* Rosa vibrante */
     margin-bottom: 16px;
 }
 
 /* Nome do usuário */
-.review-user {
+.review-page .review-user {
     font-size: 1.1rem;
     color: #f1f1f1; /* Nome do usuário em branco suave */
     margin-bottom: 12px;
 }
 
 /* Descrição da avaliação */
-.review-description {
+.review-page .review-description {
     font-size: 1rem;
     margin-bottom: 24px;
     line-height: 1.5;
+    color: #ddd; /* Cor clara para a descrição */
 }
 
 /* Rodapé com pontuação e data */
-.review-footer {
+.review-page .review-footer {
     font-size: 0.9rem;
-    color: #e0e0e0;
+    color: #e0e0e0; /* Cor mais suave para o rodapé */
     margin-top: 20px;
 }
 
 /* Estilo de carregamento */
-.loading {
+.review-page .loading {
     text-align: center;
     color: #fff;
     padding: 20px;
     font-size: 1.5rem;
+}
+
+/* Seção de comentários */
+.review-page .comments-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1c1c1c; /* Cor mais escura para a seção de comentários */
+    border-radius: 8px;
+}
+
+/* Lista de comentários */
+.review-page .comments-list {
+    margin-top: 15px;
+}
+
+/* Cartão de comentário */
+.review-page .comment-card {
+    padding: 10px;
+    background-color: #2c2c2c; /* Fundo escuro do cartão */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+/* Nome do usuário no comentário */
+.review-page .comment-user {
+    font-weight: bold;
+    color: #e91e63; /* Cor vibrante para o nome do usuário */
+}
+
+/* Texto do comentário */
+.review-page .comment-text {
+    margin: 5px 0;
+    color: #ddd; /* Cor mais clara para o texto */
+}
+
+/* Data do comentário */
+.review-page .comment-date {
+    font-size: 12px;
+    color: #999; /* Cor clara para a data */
+}
+
+.commentbtn {
+    background-color: #e91e63;
+    border: none;
+}
+
+.commentbtn:hover {
+    background-color: #e7004d;
+    border: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .review-page .review-card {
+        padding: 15px;
+    }
+
+    .review-page .review-title {
+        font-size: 1.6rem;
+    }
+
+    .review-page .review-description {
+        font-size: 0.95rem;
+    }
+
+    .review-page .review-footer {
+        font-size: 0.8rem;
+    }
+
+    .review-page .loading {
+        font-size: 1.2rem;
+    }
 }

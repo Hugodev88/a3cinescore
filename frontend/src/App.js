@@ -16,6 +16,7 @@ import MovieForm from './components/MovieForm';
 import ReviewForm from './components/ReviewForm';
 import ReviewPage from './pages/ReviewPage';
 import SearchResults from './components/SearchResults';
+import MovieEdit from './components/MovieEdit';
 
 // Importando o AuthContext
 import { AuthContext } from './contexts/AuthContext';
@@ -52,6 +53,8 @@ const App = () => {
                         <Route path="/review/:id" element={<ReviewForm showMessage={showMessage} />} />
                         <Route path="/reviews/:id" element={<ReviewPage />} />
                         <Route path="/search" element={<SearchResults />} />
+
+                        <Route path="/movies/edit/:id" element={<MovieEdit showMessage={showMessage}/>} />
                         {/* /movies/add */}
                         <Route path="/login" element={<LoginPage showMessage={showMessage} />} />
                         <Route path="/register" element={<RegisterPage showMessage={showMessage} />} />

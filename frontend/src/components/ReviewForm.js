@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import { toast } from 'react-toastify'; // Importando o toast para mostrar a mensagem
+import './ReviewForm.css';  // Importe a folha de estilos para o formulário de avaliação
 
 const ReviewForm = ({ showMessage }) => {
     const { id } = useParams(); // Aqui usamos 'id' que é o nome do parâmetro da rota
@@ -77,14 +78,14 @@ const ReviewForm = ({ showMessage }) => {
     };
     
     return (
-        <form onSubmit={handleSubmit} className="p-4 bg-light rounded">
-            <h3 className="mb-4 text-dark">
+        <form onSubmit={handleSubmit} className="review-form p-4">
+            <h3 className="review-title mb-4">
                 Avaliar o Filme: {movie ? movie.title : 'Carregando...'}
             </h3>
             <div className="mb-3">
                 <input
                     type="text"
-                    className="form-control"
+                    className="review-input"
                     placeholder="Título da Avaliação"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -93,7 +94,7 @@ const ReviewForm = ({ showMessage }) => {
             </div>
             <div className="mb-3">
                 <textarea
-                    className="form-control"
+                    className="review-textarea"
                     placeholder="Escreva sua avaliação"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
@@ -102,10 +103,10 @@ const ReviewForm = ({ showMessage }) => {
                 />
             </div>
             <div className="mb-3">
-                <h3 className="mb-2 text-dark fs-6">Nota de 0 a 10</h3>
+                <h3 className="mb-2 fs-6">Nota de 0 a 10</h3>
                 <input
                     type="number"
-                    className="form-control"
+                    className="review-input"
                     placeholder="Nota (0-10)"
                     value={score}
                     onChange={(e) => setScore(e.target.value)}
@@ -114,7 +115,7 @@ const ReviewForm = ({ showMessage }) => {
                     required
                 />
             </div>
-            <button className="btn btn-danger" type="submit">Enviar Avaliação</button>
+            <button className="review-submit-btn" type="submit">Enviar Avaliação</button>
         </form>
     );
 };

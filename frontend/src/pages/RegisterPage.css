@@ -1,0 +1,119 @@
+/* Estilo principal da página de registro */
+.register-page .container {
+    max-width: 500px;
+    background-color: #1e1e1e; /* Fundo escuro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    margin-top: 50px;
+    color: white; /* Texto branco */
+}
+
+/* Cabeçalho */
+.register-page h2 {
+    text-align: center;
+    color: #e91e63; /* Rosa vibrante */
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.register-page .form-label {
+    font-size: 0.9rem;
+    color: #ddd; /* Texto mais claro */
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.register-page .form-control {
+    background-color: #2d2d2d; /* Fundo escuro dos inputs */
+    color: white; /* Texto branco */
+    border: 1px solid #444; /* Borda mais discreta */
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Cor do placeholder */
+.register-page .form-control::placeholder {
+    color: #bbb; /* Placeholder mais claro */
+    font-size: 0.95rem; /* Ajuste do tamanho da fonte */
+}
+
+/* Ao focar */
+.register-page .form-control:focus {
+    border-color: #e91e63; /* Rosa vibrante ao focar */
+    outline: none;
+    box-shadow: 0 0 5px #e91e63; /* Brilho leve */
+}
+
+/* Botão de registro */
+.register-page .btn-danger {
+    width: 100%;
+    background-color: #8e44ad; /* Roxo forte */
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-page .btn-danger:hover {
+    background-color: #732d91; /* Roxo mais escuro */
+    transform: scale(1.02); /* Efeito de crescimento leve */
+}
+
+/* Link para login */
+.register-page .btn-link {
+    color: #e91e63; /* Rosa vibrante */
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.register-page .btn-link:hover {
+    color: #ff4081; /* Rosa mais claro */
+    text-decoration: underline;
+}
+
+/* Margens e espaçamentos */
+.register-page .mt-3 {
+    margin-top: 20px;
+}
+
+.register-page .mb-3 {
+    margin-bottom: 15px;
+}
+
+.register-page .form-control.mt-3 {
+    margin-top: 15px;
+}
+
+/* Texto do rodapé */
+.register-page p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #bbb; /* Texto mais claro */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .register-page .container {
+        padding: 20px;
+    }
+
+    .register-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .register-page .btn-danger {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .register-page p {
+        font-size: 0.8rem;
+    }
+}

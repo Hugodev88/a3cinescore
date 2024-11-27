@@ -44,8 +44,6 @@ module.exports = class MovieController {
             res.status(500).json({ message: error.message || 'Erro ao buscar filmes.' });
         }
     }
-    
-
 
     // Método para adicionar um novo filme
     static async addMovie(req, res) {
@@ -108,40 +106,29 @@ module.exports = class MovieController {
     // Método para editar um filme
     static async editMovie(req, res) {
         const movieId = req.params.id;
-
-        if (!ObjectId.isValid(movieId)) {
-            return res.status(422).json({ message: 'Id de filme inválido' });
-        }
-
+        const { title, description, releaseDate, director, genre } = req.body;
+    
         try {
             const movie = await Movie.findById(movieId);
-
+    
             if (!movie) {
                 return res.status(404).json({ message: 'Filme não encontrado' });
             }
-
-            // Verificar se o usuário autenticado tem permissão para editar o filme
-            const token = getToken(req);
-            const user = await getUserByToken(token);
-
-            // Apenas o usuário que criou o filme ou administrador pode editá-lo
-            if (movie.user._id.toString() !== user._id.toString()) {
-                return res.status(403).json({ message: 'Você não tem permissão para editar este filme' });
+    
+            // Atualiza os campos do filme, se forem fornecidos
+            movie.title = title || movie.title;
+            movie.description = description || movie.description;
+            movie.releaseDate = releaseDate || movie.releaseDate;
+            movie.director = director || movie.director;
+            movie.genre = genre || movie.genre;
+    
+            // Se houver uma foto, atualiza
+            if (req.file) {
+                movie.photo = req.file.filename;
             }
-
-            // Atualiza os campos do filme
-            const { title, description, releaseDate, director, genre } = req.body;
-            const photo = req.file ? req.file.filename : movie.photo;  // Atualiza foto, se houver
-
-            if (title) movie.title = title;
-            if (description) movie.description = description;
-            if (releaseDate) movie.releaseDate = releaseDate;
-            if (director) movie.director = director;
-            if (genre) movie.genre = genre;
-            movie.photo = photo;
-
-            const updatedMovie = await movie.save();
-            res.status(200).json({ message: 'Filme atualizado com sucesso', updatedMovie });
+    
+            await movie.save();
+            res.status(200).json({ message: 'Filme atualizado com sucesso', movie });
         } catch (error) {
             res.status(500).json({ message: error.message || 'Erro ao editar filme' });
         }
@@ -177,6 +164,7 @@ module.exports = class MovieController {
         }
     }
 
+    // Método para buscar as avaliacoes de um filme
     static async getMovieReviews(req, res) {
 
         try {

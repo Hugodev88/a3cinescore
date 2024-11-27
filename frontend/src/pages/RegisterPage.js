@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import api from '../services/api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
+import './RegisterPage.css'
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -38,67 +38,65 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="container mt-4">
-            <h2 className='text-white'>Registrar</h2>
-            <form onSubmit={handleRegister}>
-                <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Nome de Usuário</label>
-                    <input
-                        type="text"
-                        id="name"
-                        className="form-control"
-                        placeholder="Nome de Usuário"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        className="form-control"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Senha</label>
-                    <input
-                        type="password"
-                        id="password"
-                        className="form-control"
-                        placeholder="Senha"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-
-                <div className="mb-3">
-                    <label htmlFor="confirmPassword" className="form-label">Confirmar Senha</label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        className="form-control"
-                        placeholder="Confirmar Senha"
-                        value={confirmpassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                </div>
-
-                <button className="btn btn-danger mt-3" type="submit">
-                    Registrar
-                </button>
-
-                <div className="mt-3">
-                <p>Já tem uma conta? <button className="btn btn-link p-0" onClick={() => navigate('/login')}>Entre aqui</button></p>
-                </div>
-            </form>
+        <div className="register-page">
+            <div className="container mt-4">
+                <h2>Registrar</h2>
+                <form onSubmit={handleRegister}>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nome de Usuário</label>
+                        <input
+                            type="text"
+                            id="name"
+                            className="form-control"
+                            placeholder="Nome de Usuário"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            className="form-control"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Senha</label>
+                        <input
+                            type="password"
+                            id="password"
+                            className="form-control"
+                            placeholder="Senha"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="confirmPassword" className="form-label">Confirmar Senha</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            className="form-control"
+                            placeholder="Confirmar Senha"
+                            value={confirmpassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    <button className="btn btn-danger mt-3" type="submit">
+                        Registrar
+                    </button>
+                    <div className="mt-3">
+                        <p>Já tem uma conta? <button className="btn btn-link p-0" onClick={() => navigate('/login')}>Entre aqui</button></p>
+                    </div>
+                </form>
+            </div>
         </div>
     );
+    
 };
 
 export default RegisterPage;

@@ -15,7 +15,7 @@ router.get('/:id/reviews', MovieController.getMovieReviews)
 router.get('/movie/search', MovieController.searchMovie)
 
 // U
-router.put('/edit/:id', verifyToken, MovieController.editMovie)
+router.post('/edit/:id', verifyToken, MovieController.editMovie)
 
 // D
 router.delete('/delete/:id', verifyToken, MovieController.deleteMovie)
