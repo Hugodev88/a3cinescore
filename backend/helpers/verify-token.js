@@ -2,12 +2,12 @@ const jwt = require("jsonwebtoken")
 const getToken = require('./get-token')
 
 const checkToken = async(req, res, next) => {
+    
+    const token = getToken(req)
 
     if(!req.headers.authorization){
         return res.status(401).json({message: "Você deve estar logado para fazer isso."})
     }
-
-    const token = getToken(req)
 
     if(!token){
         return res.status(401).json({message: "Acesso negado"})

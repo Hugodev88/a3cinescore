@@ -17,6 +17,8 @@ import ReviewForm from './components/ReviewForm';
 import ReviewPage from './pages/ReviewPage';
 import SearchResults from './components/SearchResults';
 import MovieEdit from './components/MovieEdit';
+import ReviewEdit from './components/ReviewEdit';   
+import ProfileEditPage from './pages/ProfileEditPage';
 
 // Importando o AuthContext
 import { AuthContext } from './contexts/AuthContext';
@@ -55,6 +57,7 @@ const App = () => {
                         <Route path="/search" element={<SearchResults />} />
 
                         <Route path="/movies/edit/:id" element={<MovieEdit showMessage={showMessage}/>} />
+                        <Route path="/reviews/edit/:id" element={<ReviewEdit showMessage={showMessage}/>} />
                         {/* /movies/add */}
                         <Route path="/login" element={<LoginPage showMessage={showMessage} />} />
                         <Route path="/register" element={<RegisterPage showMessage={showMessage} />} />
@@ -62,6 +65,11 @@ const App = () => {
                             path="/profile"
                             element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" />}
                         />
+
+                        <Route
+                            path="/edit-profile"
+                            element={isAuthenticated ? <ProfileEditPage /> : <Navigate to="/login" />}
+                        />  
                         
                     </Routes>
                 </div>

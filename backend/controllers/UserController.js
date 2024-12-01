@@ -127,11 +127,11 @@ module.exports = class UserController {
     }
 
     static async editUser(req, res) {
-        
-        const id = req.params.id
 
         const token = getToken(req)
         const user = await getUserByToken(token)
+
+        console.log("teste")
 
         const { name, email, password, confirmpassword} = req.body
 

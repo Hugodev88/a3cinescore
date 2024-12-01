@@ -110,6 +110,17 @@
     color: #121212;
   }
   
+  .review-card a {
+    text-decoration: none !important; /* Remove sublinhado */
+    color: inherit !important; /* Herda a cor do pai */
+    border: none !important; /* Remove bordas que podem parecer sublinhado */
+}
+
+.review-card a:hover {
+    text-decoration: none; /* Garante que o sublinhado não volte ao passar o mouse */
+    color: #e91e63; /* Cor opcional ao passar o mouse */
+}
+
 
 /* Ajustes de layout para telas menores */
 @media (max-width: 768px) {
@@ -134,27 +145,26 @@
     }
 }
 
-
 .actionsMoviePage {
-    display: block;
-    justify-content: space-between;
-    gap: 8px;
+    display: flex; /* Torna os itens flexíveis */
+    justify-content: space-between; /* Espaça os itens uniformemente */
+    align-items: center; /* Centraliza verticalmente os itens */
+    gap: 16px; /* Espaçamento entre os botões */
     margin-top: 16px; /* Espaço acima dos botões */
 }
 
-/* Botões - Estilo base */
 .actionsMoviePage .btn {
-    margin: 0 auto;
-    flex: 1;
     background-color: #8e44ad; /* Roxo forte */
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 16px; /* Ajusta a altura e largura do botão */
     border-radius: 6px;
     font-size: 14px;
     transition: background-color 0.3s ease;
-    cursor: pointer; /* Mostra que é clicável */
+    cursor: pointer;
+    width: 120px; /* Largura fixa */
+    flex: none; /* Evita que o botão cresça além da largura fixa */
 }
 
 .actionsMoviePage .btn:hover {

@@ -94,37 +94,36 @@ function MoviePage() {
                                 <Link to={`/review/${movie._id}`} className="btn">Avaliar</Link>
                                 <Link to={`/movies/edit/${movie._id}`} className="btn">Editar</Link>
                             </div>
+
                         </div>
 
                         {/* Avaliações */}
                         <div className="movie-reviews mt-4">
                             <h4 className="review-title">Avaliações</h4>
                             <div>
-                            {movie.reviews && movie.reviews.length > 0 ? (
+                            {movie?.reviews?.length > 0 ? (
                                 reviews.map((review, index) => (
                                     <Link to={`/reviews/${review._id}`} key={review._id}>
-                                    <div className="review-card p-3 rounded bg-dark text-white shadow-sm">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                        <strong>{review.title}</strong>
-                                        {/* Calcula a cor da pontuação com base no valor */}
-                                        <span
-                                            className="badge"
-                                            style={{
-                                            backgroundColor: getBadgeColor(review.score),
-                                            
-                                            }}
-                                        >
-                                            {review.score}
-                                        </span>
+                                        <div className="review-card p-3 rounded bg-dark text-white shadow-sm">
+                                            <div className="d-flex justify-content-between align-items-center">
+                                                <strong>{review.title}</strong>
+                                                {/* Calcula a cor da pontuação com base no valor */}
+                                                <span
+                                                    className="badge"
+                                                    style={{
+                                                        backgroundColor: getBadgeColor(review.score),
+                                                    }}
+                                                >
+                                                    {review.score}
+                                                </span>
+                                            </div>
+                                            <small>Por: {users[index] ? users[index].name : 'Carregando...'}</small>
                                         </div>
-                                        <small>Por: {users[index] ? users[index].name : 'Carregando...'}</small>
-                                    </div>
                                     </Link>
                                 ))
-                                ) : (
+                            ) : (
                                 <p>Sem avaliações.</p>
-                                )}
-
+                            )}
                             </div>
                         </div>
                     </div>

@@ -1,24 +1,24 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import './Header.css'
+import './Header.css';
 import SearchBox from './SearchBox';
 
 const Header = () => {
-    const { isAuthenticated, logout } = useContext(AuthContext); // Pegando o estado do contexto
+    const { isAuthenticated, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        logout(); 
-        localStorage.removeItem('token'); // 
-        navigate('/'); 
+        logout();
+        localStorage.removeItem('token');
+        navigate('/');
     };
 
     return (
         <header>
-            <div className="container d-flex justify-content-between align-items-center">
-                <Link className='link title' to="/">CineScore</Link>
-                <nav className='navbar'>
+            <div className="container">
+                <Link className="link title" to="/">CineScore</Link>
+                <nav className="navbar">
                     {!isAuthenticated ? (
                         <Link className="link" to="/login">Login</Link>
                     ) : (

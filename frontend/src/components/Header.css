@@ -1,38 +1,141 @@
+/* Especificação para o Header */
 header {
     background-color: #000000;
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.container {
+header .container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-a{
+header a {
     color: #ffffff;
-    font-style: bold;
+    font-weight: bold;
     text-decoration: none;
     margin: 15px;
 }
 
-.link:hover {
+header .link:hover {
     color: #8e44ad;
     border-radius: 15px;
     transition: 0.5s;
 }
 
-
-.link {
+header .link {
     font-size: 1em;
     color: #e91e63;
 }
 
-.title {
+header .title {
     font-size: 30px;
+    margin-right: 20px;
 }
 
-input {
+header input {
     padding: 5px;
     border-radius: 10px;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo do botão de logout */
+header button {
+    margin-left: 10px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    header .navbar {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    header .link {
+        font-size: 0.9em;
+        margin: 8px;
+    }
+
+    header button {
+        font-size: 0.9em;
+    }
+
+    /* Ajustes específicos para telas pequenas */
+    header .navbar a, header .navbar button {
+        margin: 8px 0;
+    }
+}
+
+/* Responsividade para telas de tablets ou menores */
+@media (max-width: 480px) {
+    header .title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    header .navbar {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    header .link {
+        font-size: 0.8em;
+        margin: 5px 0;
+    }
+
+    header .add,
+    header .perfil {
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+
+    header button {
+        font-size: 0.8em;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Ajuste extra para garantir a boa distribuição dos itens */
+    header .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    header .link,
+    header button {
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+    }
 }

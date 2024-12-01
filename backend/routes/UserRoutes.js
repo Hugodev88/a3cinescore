@@ -14,7 +14,7 @@ router.get('/user/:id', UserController.getUserById)
 router.get('/user/:id/reviews', UserController.getUserReviews)
 
 // UPDATE
-router.patch('/edit/:id', verifyToken, UserController.editUser)
+router.patch('/edit', verifyToken, UserController.editUser)
 
 router.get('/checkuser', UserController.checkUser)
 

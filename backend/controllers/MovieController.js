@@ -10,8 +10,10 @@ module.exports = class MovieController {
     // Método para exibir todos os filmes
     static async showMovies(req, res) {
         try {
-            const movies = await Movie.find().sort('-createdAt');
-            res.status(200).json( movies );
+            const movies = await Movie.find()
+                .sort('-createdAt') // Ordena pelos filmes mais recentes
+                .limit(10); // Limita a consulta a apenas 10 filmes
+            res.status(200).json(movies);
         } catch (error) {
             res.status(500).json({ message: error.message || 'Erro ao carregar filmes' });
         }

@@ -1,0 +1,104 @@
+.profile-edit-page .container {
+    max-width: 500px;
+    background-color: #1e1e1e; /* Fundo escuro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    margin-top: 50px;
+    color: white; /* Texto branco */
+}
+
+.profile-edit-page h2 {
+    text-align: center;
+    color: #e91e63; /* Rosa vibrante */
+    margin-bottom: 20px;
+}
+
+.profile-edit-page .form-label {
+    font-size: 0.9rem;
+    color: #ddd; /* Texto mais claro */
+    margin-bottom: 5px;
+}
+
+.profile-edit-page .form-control {
+    background-color: #2d2d2d; /* Fundo escuro dos inputs */
+    color: white; /* Texto branco */
+    border: 1px solid #444; /* Borda mais discreta */
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.profile-edit-page .form-control::placeholder {
+    color: #bbb; /* Placeholder mais claro */
+    font-size: 0.95rem;
+}
+
+.profile-edit-page .form-control:focus {
+    border-color: #e91e63; /* Rosa vibrante ao focar */
+    outline: none;
+    box-shadow: 0 0 5px #e91e63;
+}
+
+.profile-edit-page .btn-danger {
+    width: 100%;
+    background-color: #8e44ad; /* Roxo forte */
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-edit-page .btn-danger:hover {
+    background-color: #732d91; /* Roxo mais escuro */
+    transform: scale(1.02);
+}
+
+.profile-edit-page .btn-link {
+    color: #e91e63; /* Rosa vibrante */
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.profile-edit-page .btn-link:hover {
+    color: #ff4081; /* Rosa mais claro */
+    text-decoration: underline;
+}
+
+.profile-edit-page .mt-3 {
+    margin-top: 20px;
+}
+
+.profile-edit-page .mb-3 {
+    margin-bottom: 15px;
+}
+
+.profile-edit-page p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #bbb; /* Texto mais claro */
+}
+
+@media (max-width: 768px) {
+    .profile-edit-page .container {
+        padding: 20px;
+    }
+
+    .profile-edit-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .profile-edit-page .btn-danger {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .profile-edit-page p {
+        font-size: 0.8rem;
+    }
+}
