@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "../services/api"; // Importe a instância do Axios configurada
+import api from "../services/api"; 
 import "./MovieForm.css"; 
 import { useNavigate } from 'react-router-dom';
 
@@ -8,45 +8,41 @@ const MovieForm = ({ showMessage }) => {
     const [movie, setMovie] = useState({});
     const [preview, setPreview] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [error, setError] = useState(""); // Gerenciar erros de envio
+    const [error, setError] = useState(""); 
 
-    // Atualiza o preview da imagem
     function onFileChange(e) {
         const file = e.target.files[0];
         if (file) {
             setPreview(URL.createObjectURL(file));
-            setMovie({ ...movie, photo: file }); // Adiciona a foto ao state
+            setMovie({ ...movie, photo: file }); 
         }
     }
 
-    // Atualiza os campos do formulário
     function handleChange(e) {
         setMovie({ ...movie, [e.target.name]: e.target.value });
     }
 
-    // Atualiza os gêneros ao separá-los por vírgula
     const handleGenreChange = (e) => {
         setGenres(e.target.value.split(",").map((g) => g.trim()));
         setMovie({ ...movie, genre: e.target.value.split(",").map((g) => g.trim()) });
     };
 
-    // Envia o formulário
     async function submit(e) {
         e.preventDefault();
-        setError(""); // Limpa erros anteriores
+        setError(""); 
 
-        const formData = new FormData(); // FormData para envio multipart/form-data
+        const formData = new FormData(); 
         formData.append("title", movie.title);
         formData.append("description", movie.description);
         formData.append("releaseDate", movie.releaseDate);
         formData.append("director", movie.director);
         formData.append("genre", genres.join(","));
         if (movie.photo) {
-            formData.append("photo", movie.photo); // Adiciona a imagem
+            formData.append("photo", movie.photo); 
         }
 
         try {
-            const token = localStorage.getItem("token"); // Pega o token do usuário (autenticação)
+            const token = localStorage.getItem("token"); 
             const headers = { Authorization: `Bearer ${token}` };
 
             const response = await api.post("/movies/add", formData, { headers });

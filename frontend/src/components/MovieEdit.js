@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../services/api"; // Instância do Axios configurada
+import api from "../services/api"; 
 import "./MovieForm.css";
 
 const MovieEdit = ({ showMessage }) => {
@@ -9,16 +9,15 @@ const MovieEdit = ({ showMessage }) => {
     const [movie, setMovie] = useState({});
     const [preview, setPreview] = useState(null);
     const [genres, setGenres] = useState([]);
-    const [error, setError] = useState(""); // Para gerenciar erros de envio
+    const [error, setError] = useState(""); 
 
-    // Carregar dados do filme
     useEffect(() => {
         const loadMovie = async () => {
             try {
                 const response = await api.get(`/movies/${id}`);
                 const movieData = response.data.movie;
                 setMovie(movieData);
-                setGenres(movieData.genre); // Preenche os gêneros
+                setGenres(movieData.genre); 
                 setPreview(movieData.photo ? `${process.env.REACT_APP_API}/images/movies/${movieData.photo}` : null);
             } catch (error) {
                 console.error("Erro ao carregar filme:", error);
@@ -28,11 +27,9 @@ const MovieEdit = ({ showMessage }) => {
         loadMovie();
     }, [id]);
 
-    // Atualiza o preview da imagem
     function onFileChange(e) {
         const file = e.target.files[0];
     
-        // Verifica se o arquivo excede 10MB
         if (file && file.size > 10 * 1024 * 1024) {
             alert("O arquivo é muito grande. O limite é 10MB.");
             return;
@@ -40,23 +37,19 @@ const MovieEdit = ({ showMessage }) => {
     
         if (file) {
             setPreview(URL.createObjectURL(file));
-            setMovie({ ...movie, photo: file }); // Adiciona a foto ao state
+            setMovie({ ...movie, photo: file }); 
         }
     }
     
-
-    // Atualiza os campos do formulário
     function handleChange(e) {
         setMovie({ ...movie, [e.target.name]: e.target.value });
     }
 
-    // Atualiza os gêneros ao separá-los por vírgula
     const handleGenreChange = (e) => {
         setGenres(e.target.value.split(",").map((g) => g.trim()));
         setMovie({ ...movie, genre: e.target.value.split(",").map((g) => g.trim()) });
     };
 
-    // Envia o formulário
     async function submit(e) {
         e.preventDefault();
         setError(""); 
@@ -86,12 +79,12 @@ const MovieEdit = ({ showMessage }) => {
     }
 
     function formatDateForInput(dateString) {
-        if (!dateString) return ""; // Se não houver data, retorna uma string vazia
+        if (!dateString) return ""; 
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0"); // Meses começam do 0
+        const month = String(date.getMonth() + 1).padStart(2, "0"); 
         const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`; // Retorna no formato "yyyy-MM-dd"
+        return `${year}-${month}-${day}`; 
     }
     
 

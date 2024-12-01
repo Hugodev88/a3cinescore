@@ -1,43 +1,38 @@
-/* Estilo geral do formulário */
 .review-form {
-    background-color: #2d2d2d; /* Fundo mais escuro */
+    background-color: #2d2d2d;
     color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
 }
 
-/* Título da página de avaliação */
 .review-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #e91e63; /* Cor vibrante */
+    color: #e91e63;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Estilo dos inputs */
 .review-input {
-    background-color: #1e1e1e; /* Fundo escuro */
+    background-color: #1e1e1e;
     color: white;
-    border: 1px solid #444; /* Borda mais discreta */
-    border-radius: 8px; /* Bordas arredondadas */
+    border: 1px solid #444;
+    border-radius: 8px;
     padding: 12px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Ocupa toda a largura do container */
-    margin-bottom: 15px; /* Espaçamento entre os inputs */
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-/* Estilo dos placeholders nos inputs */
 .review-input::placeholder {
-    color: #bbb; /* Cor clara para o placeholder */
-    opacity: 1; /* Garante que a opacidade do placeholder seja visível */
+    color: #bbb;
+    opacity: 1;
 }
 
-/* Estilo da área de texto */
 .review-textarea {
     background-color: #1e1e1e;
     color: white;
@@ -46,26 +41,23 @@
     padding: 12px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Ocupa toda a largura do container */
-    margin-bottom: 20px; /* Espaçamento entre o campo de texto e o botão */
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-/* Estilo dos placeholders na área de texto */
 .review-textarea::placeholder {
-    color: #bbb; /* Cor clara para o placeholder */
-    opacity: 1; /* Garante que a opacidade do placeholder seja visível */
+    color: #bbb;
+    opacity: 1;
 }
 
-/* Efeito ao focar nos inputs e textarea */
 .review-input:focus, .review-textarea:focus {
-    border-color: #e91e63; /* Rosa vibrante ao focar */
+    border-color: #e91e63;
     outline: none;
-    box-shadow: 0 0 5px #e91e63; /* Brilho leve */
+    box-shadow: 0 0 5px #e91e63;
 }
 
-/* Botão de envio */
 .review-submit-btn {
-    background-color: #8e44ad; /* Roxo forte */
+    background-color: #8e44ad;
     border: none;
     padding: 14px;
     font-size: 1rem;
@@ -73,10 +65,10 @@
     text-transform: uppercase;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%; /* Ocupa toda a largura do container */
+    width: 100%;
 }
 
 .review-submit-btn:hover {
-    background-color: #732d91; /* Roxo mais escuro */
-    transform: scale(1.02); /* Efeito de crescimento leve */
+    background-color: #732d91;
+    transform: scale(1.02);
 }

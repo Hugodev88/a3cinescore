@@ -8,16 +8,16 @@ const LoginPage = ({ showMessage }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext); // Usando o contexto de autenticação
+    const { login } = useContext(AuthContext); 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await api.post('/login', { email, password });
             localStorage.setItem('token', response.data.token);
-            login(response.data.token); // Atualiza o estado de autenticação no contexto
+            login(response.data.token);
             showMessage('success', 'Login realizado com sucesso!');
-            navigate('/'); // Redireciona após login bem-sucedido
+            navigate('/');
         } catch (error) {
             showMessage('error', 'Falha no login. Verifique suas credenciais.');
         }

@@ -20,14 +20,12 @@ import MovieEdit from './components/MovieEdit';
 import ReviewEdit from './components/ReviewEdit';   
 import ProfileEditPage from './pages/ProfileEditPage';
 
-// Importando o AuthContext
 import { AuthContext } from './contexts/AuthContext';
 
 
 const App = () => {
     const { isAuthenticated, login, logout } = useContext(AuthContext);
 
-    // Função para mostrar mensagens flash
     const showMessage = (type, message) => {
         if (type === 'success') toast.success(message);
         else if (type === 'error') toast.error(message);
@@ -35,12 +33,11 @@ const App = () => {
     };
 
     useEffect(() => {
-        // Se o token estiver no localStorage, atualize o estado de autenticação
         const token = localStorage.getItem('token');
         if (token) {
             login(token);
         }
-    }, [login]); // O `login` vai ser chamado sempre que o componente for montado ou re-renderizado
+    }, [login]); 
 
     return (
         <Router>

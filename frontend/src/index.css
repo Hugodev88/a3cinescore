@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%; /* Garante que o body ocupe 100% da altura da janela */
+  height: 100%; 
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -15,15 +15,15 @@ html, body {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos toda a altura da janela */
+  min-height: 100vh; 
 }
 
 .main-content {
-  flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+  flex: 1; 
 }
 
 footer {
-  background-color: #333; /* Exemplo de cor para o footer */
+  background-color: #333; 
   color: white;
   text-align: center;
   padding: 10px 0;

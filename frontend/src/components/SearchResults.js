@@ -6,21 +6,20 @@ import './SearchResults.css'
 
 function SearchResults() {
     const [results, setResults] = useState([]);
-    const location = useLocation(); // Hook para acessar a URL
-    const query = new URLSearchParams(location.search).get('query'); // Pega o valor do parâmetro 'query'
+    const location = useLocation(); 
+    const query = new URLSearchParams(location.search).get('query'); 
 
     useEffect(() => {
         if (query) {
-            // Realiza a busca novamente com base no parâmetro query
             api.get(`/movies/movie/search?name=${query}`)
                 .then((response) => {
-                    setResults(response.data); // Armazena os filmes encontrados
+                    setResults(response.data); 
                 })
                 .catch((error) => {
                     console.error('Erro ao buscar filmes:', error);
                 });
         }
-    }, [query]); // Re-executa a busca sempre que 'query' mudar
+    }, [query]);
 
     return (
         <div className="container py-5">
@@ -34,7 +33,7 @@ function SearchResults() {
                                 src={`${process.env.REACT_APP_API}/images/movies/${movie.photo}`}
                                 alt={movie.title}
                                 className="movie-poster me-3"
-                                onError={(e) => (e.target.src = 'default-image.jpg')} // Fallback para imagem padrão
+                                onError={(e) => (e.target.src = 'default-image.jpg')} 
                             />
                             <div className="movie-info">
                                 <h5 className="movie-title mb-1">{movie.title}</h5>

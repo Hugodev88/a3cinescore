@@ -34,18 +34,16 @@ const ProfileEditPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validação simples: as senhas devem ser iguais
         if (password !== confirmPassword) {
             toast.error('As senhas não coincidem!');
             return;
         }
 
         try {
-            // Atualizar os dados do perfil
             const payload = {
                 name,
                 email,
-                password: password || undefined, // Envia a senha somente se foi preenchida
+                password: password || undefined, 
             };
 
             await api.patch('/edit', payload, {

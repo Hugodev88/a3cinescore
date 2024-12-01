@@ -1,29 +1,29 @@
 .profile-edit-page .container {
     max-width: 500px;
-    background-color: #1e1e1e; /* Fundo escuro */
+    background-color: #1e1e1e;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     margin-top: 50px;
-    color: white; /* Texto branco */
+    color: white;
 }
 
 .profile-edit-page h2 {
     text-align: center;
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63;
     margin-bottom: 20px;
 }
 
 .profile-edit-page .form-label {
     font-size: 0.9rem;
-    color: #ddd; /* Texto mais claro */
+    color: #ddd;
     margin-bottom: 5px;
 }
 
 .profile-edit-page .form-control {
-    background-color: #2d2d2d; /* Fundo escuro dos inputs */
-    color: white; /* Texto branco */
-    border: 1px solid #444; /* Borda mais discreta */
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #444;
     border-radius: 6px;
     padding: 10px;
     font-size: 1rem;
@@ -31,19 +31,19 @@
 }
 
 .profile-edit-page .form-control::placeholder {
-    color: #bbb; /* Placeholder mais claro */
+    color: #bbb;
     font-size: 0.95rem;
 }
 
 .profile-edit-page .form-control:focus {
-    border-color: #e91e63; /* Rosa vibrante ao focar */
+    border-color: #e91e63;
     outline: none;
     box-shadow: 0 0 5px #e91e63;
 }
 
 .profile-edit-page .btn-danger {
     width: 100%;
-    background-color: #8e44ad; /* Roxo forte */
+    background-color: #8e44ad;
     border: none;
     padding: 12px;
     font-size: 1rem;
@@ -54,19 +54,19 @@
 }
 
 .profile-edit-page .btn-danger:hover {
-    background-color: #732d91; /* Roxo mais escuro */
+    background-color: #732d91;
     transform: scale(1.02);
 }
 
 .profile-edit-page .btn-link {
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63;
     font-size: 0.9rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .profile-edit-page .btn-link:hover {
-    color: #ff4081; /* Rosa mais claro */
+    color: #ff4081;
     text-decoration: underline;
 }
 
@@ -81,7 +81,7 @@
 .profile-edit-page p {
     font-size: 0.9rem;
     text-align: center;
-    color: #bbb; /* Texto mais claro */
+    color: #bbb;
 }
 
 @media (max-width: 768px) {

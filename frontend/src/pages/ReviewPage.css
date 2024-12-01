@@ -1,57 +1,49 @@
-/* Página de avaliação */
 .review-page {
-    background-color: #1e1e1e; /* Fundo escuro */
-    color: white; /* Texto branco */
+    background-color: #1e1e1e; 
+    color: white; 
     min-height: 100vh;
     padding: 20px;
 }
 
-/* Card da avaliação */
 .review-page .review-card {
-    background-color: #2d2d2d; /* Fundo escuro do card */
+    background-color: #2d2d2d;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito hover do card */
 .review-page .review-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Título da avaliação */
 .review-page .review-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63; 
     margin-bottom: 16px;
 }
 
-/* Nome do usuário */
 .review-page .review-user {
     font-size: 1.1rem;
-    color: #f1f1f1; /* Nome do usuário em branco suave */
+    color: #f1f1f1; 
     margin-bottom: 12px;
 }
 
-/* Descrição da avaliação */
 .review-page .review-description {
     font-size: 1rem;
     margin-bottom: 24px;
     line-height: 1.5;
-    color: #ddd; /* Cor clara para a descrição */
+    color: #ddd;
 }
 
-/* Rodapé com pontuação e data */
 .review-page .review-footer {
     font-size: 0.9rem;
-    color: #e0e0e0; /* Cor mais suave para o rodapé */
+    color: #e0e0e0; 
     margin-top: 20px;
 }
 
-/* Estilo de carregamento */
 .review-page .loading {
     text-align: center;
     color: #fff;
@@ -59,44 +51,38 @@
     font-size: 1.5rem;
 }
 
-/* Seção de comentários */
 .review-page .comments-section {
     margin-top: 20px;
     padding: 20px;
-    background-color: #1c1c1c; /* Cor mais escura para a seção de comentários */
+    background-color: #1c1c1c; 
     border-radius: 8px;
 }
 
-/* Lista de comentários */
 .review-page .comments-list {
     margin-top: 15px;
 }
 
-/* Cartão de comentário */
 .review-page .comment-card {
     padding: 10px;
-    background-color: #2c2c2c; /* Fundo escuro do cartão */
+    background-color: #2c2c2c; 
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 5px;
 }
 
-/* Nome do usuário no comentário */
 .review-page .comment-user {
     font-weight: bold;
-    color: #e91e63; /* Cor vibrante para o nome do usuário */
+    color: #e91e63; 
 }
 
-/* Texto do comentário */
 .review-page .comment-text {
     margin: 5px 0;
-    color: #ddd; /* Cor mais clara para o texto */
+    color: #ddd;
 }
 
-/* Data do comentário */
 .review-page .comment-date {
     font-size: 12px;
-    color: #999; /* Cor clara para a data */
+    color: #999; 
 }
 
 .commentbtn {
@@ -109,7 +95,6 @@
     border: none;
 }
 
-/* Ajustes responsivos */
 @media (max-width: 768px) {
     .review-page .review-card {
         padding: 15px;

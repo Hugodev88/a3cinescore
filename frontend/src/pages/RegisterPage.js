@@ -15,23 +15,20 @@ const RegisterPage = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
 
-        // Validação simples: as senhas devem ser iguais
         if (password !== confirmpassword) {
             toast.error('As senhas não coincidem!');
             return;
         }
 
-        // Verificação se algum campo está vazio
         if (!name || !email || !password || !confirmpassword) {
             toast.error('Todos os campos são obrigatórios!');
             return;
         }
 
         try {
-            // Enviando os dados para o backend
             await api.post('/register', { name, email, password, confirmpassword });
             toast.success('Registro realizado com sucesso!');
-            navigate('/login'); // Redireciona após registro bem-sucedido
+            navigate('/login');
         } catch (error) {
             toast.error('Erro no registro.');
         }

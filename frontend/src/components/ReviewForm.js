@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { toast } from 'react-toastify'; // Importando o toast para mostrar a mensagem
-import './ReviewForm.css';  // Importe a folha de estilos para o formulário de avaliação
+import { toast } from 'react-toastify';
+import './ReviewForm.css';
 
 const ReviewForm = ({ showMessage }) => {
-    const { id } = useParams(); // Aqui usamos 'id' que é o nome do parâmetro da rota
+    const { id } = useParams();
     const [title, setTitle] = useState('');
     const [review, setReview] = useState('');
     const [score, setScore] = useState(0);
-    const [movie, setMovie] = useState(null); // Inicialmente null
-    const navigate = useNavigate(); // Usando o hook useNavigate para redirecionar
+    const [movie, setMovie] = useState(null);
+    const navigate = useNavigate();
 
-    // Função para buscar os detalhes do filme
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -23,60 +22,48 @@ const ReviewForm = ({ showMessage }) => {
             }
         };
 
-        if (id) { // Certifique-se de que o 'id' está presente antes de fazer a requisição
+        if (id) {
             fetchMovie();
         }
     }, [id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
-            const token = localStorage.getItem('token');  // Recupera o token do localStorage
-    
-            // Verifica se o token existe antes de enviar a requisição
+            const token = localStorage.getItem('token');
             if (!token) {
                 showMessage('Você precisa estar logado!');
                 return;
             }
-    
-            // Adiciona o token no cabeçalho da requisição
 
             await api.post(
-                `/reviews/add`, 
+                `/reviews/add`,
                 {
                     title,
                     score,
                     review,
-                    movieId: id, 
+                    movieId: id,
                 },
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`,  // Inclui o token no cabeçalho
+                        Authorization: `Bearer ${token}`,
                     }
                 }
             );
-    
-            // Exibe o toast de sucesso
+
             toast.success('Avaliação enviada com sucesso!');
-    
-            // Limpa os campos do formulário
             setTitle('');
             setReview('');
             setScore(0);
-    
-            // Redireciona para a página inicial após o envio
-
-            console.log(review)
-
-            navigate('/'); // Redireciona para a página inicial
+            navigate('/');
         } catch (error) {
             console.error(error);
-            showMessage('Erro ao enviar avaliação');  // Mensagem de erro
-            toast.error('Erro ao enviar avaliação');  // Exibe um toast de erro
+            showMessage('Erro ao enviar avaliação');
+            toast.error('Erro ao enviar avaliação');
         }
     };
-    
+
     return (
         <form onSubmit={handleSubmit} className="review-form p-4">
             <h3 className="review-title mb-4">

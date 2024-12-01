@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importando useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import api from '../services/api';
 import './SearchBox.css'
 
 const SearchBox = () => {
     const [query, setQuery] = useState('');
-    const navigate = useNavigate(); // Hook para navegação
+    const navigate = useNavigate(); 
 
     const handleSearch = async (e) => {
         e.preventDefault();
 
         try {
             const response = await api.get(`movies/movie/search?name=${query}`);
-            // Redireciona para a página de resultados da pesquisa com o parâmetro 'query'
-            navigate(`/search?query=${query}`); // Passa o parâmetro query na URL
+            
+            navigate(`/search?query=${query}`); 
         } catch (error) {
             console.error('Erro na pesquisa:', error);
         }

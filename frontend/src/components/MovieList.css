@@ -1,11 +1,7 @@
-/* src/components/MovieList.css */
-
-/* Container principal */
 .movie-container {
     padding: 16px;
 }
 
-/* Grid de filmes */
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -13,7 +9,6 @@
     justify-content: center;
 }
 
-/* Card do filme */
 .movie-card {
     background-color: #1e1e1e;
     color: #ffffff;
@@ -30,7 +25,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagem do filme */
 .movie-img {
     width: 100%;
     height: 300px;
@@ -38,7 +32,6 @@
     border-radius: 12px 12px 0 0;
 }
 
-/* Corpo do card */
 .card-body {
     padding: 16px;
     text-align: center;
@@ -52,7 +45,7 @@
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0px;
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63;
 }
 
 .card-text {
@@ -64,19 +57,17 @@
     white-space: normal;
 }
 
-/* Ações */
 .actions {
     display: flex;
     justify-content: space-between;
     gap: 8px;
-    margin-top: 16px; /* Espaço acima dos botões */
+    margin-top: 16px;
 }
 
-/* Botões - Estilo base */
 .actions .btn {
     margin: 0 auto;
     flex: 1;
-    background-color: #8e44ad; /* Roxo forte */
+    background-color: #8e44ad;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -84,28 +75,25 @@
     border-radius: 6px;
     font-size: 14px;
     transition: background-color 0.3s ease;
-    cursor: pointer; /* Mostra que é clicável */
+    cursor: pointer;
 }
 
-/* Efeito de hover nos botões */
 .actions .btn:hover {
-    background-color: #e91e63; /* Cor ao passar o mouse */
+    background-color: #e91e63;
 }
 
-/* Estilização personalizada para os botões dentro do card */
 .movie-card .btn {
-    background-color: #8e44ad; /* Roxo forte */
+    background-color: #8e44ad;
     color: white;
     border: none;
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 8px 8px; /* Ajusta o espaço interno */
-    font-size: 0.9rem; /* Texto menor */
-    cursor: pointer; /* Mostra que é clicável */
-    transition: background-color 0.3s ease; /* Animação suave */
+    border-radius: 5px;
+    padding: 8px 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .movie-card .btn:hover {
-    background-color: #732d91; /* Cor ao passar o mouse */
-    color: #f1f1f1; /* Texto levemente mais claro */
+    background-color: #732d91;
+    color: #f1f1f1;
 }
-

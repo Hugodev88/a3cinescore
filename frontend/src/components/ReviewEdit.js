@@ -4,14 +4,13 @@ import api from '../services/api';
 import { toast } from 'react-toastify';
 
 const ReviewEdit = ({ showMessage }) => {
-    const { id } = useParams(); // Parâmetro 'id' para identificar a avaliação
+    const { id } = useParams();
     const [title, setTitle] = useState('');
     const [review, setReview] = useState('');
     const [score, setScore] = useState(0);
-    const [movie, setMovie] = useState(null); // Inicialmente null
-    const navigate = useNavigate(); // Usando o hook useNavigate para redirecionar
+    const [movie, setMovie] = useState(null);
+    const navigate = useNavigate();
 
-    // Função para buscar os detalhes da avaliação e do filme
     useEffect(() => {
         const fetchReviewAndMovie = async () => {
             try {
@@ -21,7 +20,6 @@ const ReviewEdit = ({ showMessage }) => {
                 setReview(reviewData.review);
                 setScore(reviewData.score);
 
-                // Buscar os dados do filme associado à avaliação
                 const movieResponse = await api.get(`/movies/${reviewData.movie}`);
                 setMovie(movieResponse.data.movie);
             } catch (error) {
@@ -32,7 +30,7 @@ const ReviewEdit = ({ showMessage }) => {
         };
 
         if (id) {
-            fetchReviewAndMovie(); // Busca os dados se o ID da avaliação estiver presente
+            fetchReviewAndMovie();
         }
     }, [id, showMessage]);
 
@@ -40,17 +38,15 @@ const ReviewEdit = ({ showMessage }) => {
         e.preventDefault();
 
         try {
-            const token = localStorage.getItem('token');  // Recupera o token do localStorage
+            const token = localStorage.getItem('token');
 
-            // Verifica se o token existe antes de enviar a requisição
             if (!token) {
                 showMessage('Você precisa estar logado!');
                 return;
             }
 
-            // Atualiza a avaliação
             await api.put(
-                `/reviews/edit/${id}`, // Rota para atualizar a avaliação
+                `/reviews/edit/${id}`,
                 {
                     title,
                     review,
@@ -58,21 +54,18 @@ const ReviewEdit = ({ showMessage }) => {
                 },
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`,  // Inclui o token no cabeçalho
+                        Authorization: `Bearer ${token}`,
                     },
                 }
             );
 
-            // Exibe o toast de sucesso
             toast.success('Avaliação atualizada com sucesso!');
 
-            // Limpa os campos do formulário
             setTitle('');
             setReview('');
             setScore(0);
 
-            // Redireciona para a página inicial após a edição
-            navigate(`/reviews/${id}`); // Redireciona para a página da avaliação ou outra página
+            navigate(`/reviews/${id}`);
         } catch (error) {
             console.error(error);
             showMessage('Erro ao atualizar avaliação');
@@ -80,7 +73,7 @@ const ReviewEdit = ({ showMessage }) => {
         }
     };
 
-    if (!movie) return <div>Carregando dados do filme...</div>; // Enquanto o filme não é carregado
+    if (!movie) return <div>Carregando dados do filme...</div>;
 
     return (
         <form onSubmit={handleSubmit} className="review-form p-4">

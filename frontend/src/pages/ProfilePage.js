@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import api from '../services/api';  // Supondo que você tenha configurado o Axios em `api.js`
+import api from '../services/api';  
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 
 const ProfilePage = () => {
     const [user, setUser] = useState(null);
-    const [reviews, setReviews] = useState([]);  // Novo estado para armazenar as avaliações
-    const [movies, setMovies] = useState([]);  // Novo estado para armazenar os filmes
+    const [reviews, setReviews] = useState([]); 
+    const [movies, setMovies] = useState([]);  
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -35,7 +35,6 @@ const ProfilePage = () => {
         fetchUser();
     }, [navigate]);
 
-    // Função para buscar as avaliações do usuário
     useEffect(() => {
         if (user) {
             const fetchReviews = async () => {
@@ -56,7 +55,6 @@ const ProfilePage = () => {
         }
     }, [user]);
 
-    // Função para buscar os filmes das avaliações
     useEffect(() => {
         if (reviews.length > 0) {
             const fetchMovies = async () => {
@@ -76,7 +74,6 @@ const ProfilePage = () => {
         }
     }, [reviews]);
 
-    // Função para remover uma avaliação
     const removeReview = async (reviewId) => {
         try {
             const token = localStorage.getItem('token');
@@ -85,7 +82,6 @@ const ProfilePage = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            // Atualiza as avaliações removendo a excluída
             setReviews(reviews.filter((review) => review._id !== reviewId));
             toast.success('Avaliação removida com sucesso!');
         } catch (error) {
@@ -95,7 +91,7 @@ const ProfilePage = () => {
     };
 
     const editReview = (reviewId) => {
-        navigate(`/reviews/edit/${reviewId}`);  // Redireciona para a página de edição da avaliação
+        navigate(`/reviews/edit/${reviewId}`);  
     }
     
 

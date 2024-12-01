@@ -1,8 +1,7 @@
-// src/components/MovieList.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
-import './MovieList.css'; // Importa o CSS personalizado
+import './MovieList.css'; 
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);

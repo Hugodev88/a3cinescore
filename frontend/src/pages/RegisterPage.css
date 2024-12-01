@@ -1,56 +1,49 @@
-/* Estilo principal da página de registro */
 .register-page .container {
     max-width: 500px;
-    background-color: #1e1e1e; /* Fundo escuro */
+    background-color: #1e1e1e;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     margin-top: 50px;
-    color: white; /* Texto branco */
+    color: white;
 }
 
-/* Cabeçalho */
 .register-page h2 {
     text-align: center;
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63;
     margin-bottom: 20px;
 }
 
-/* Labels */
 .register-page .form-label {
     font-size: 0.9rem;
-    color: #ddd; /* Texto mais claro */
+    color: #ddd;
     margin-bottom: 5px;
 }
 
-/* Inputs */
 .register-page .form-control {
-    background-color: #2d2d2d; /* Fundo escuro dos inputs */
-    color: white; /* Texto branco */
-    border: 1px solid #444; /* Borda mais discreta */
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #444;
     border-radius: 6px;
     padding: 10px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
 
-/* Cor do placeholder */
 .register-page .form-control::placeholder {
-    color: #bbb; /* Placeholder mais claro */
-    font-size: 0.95rem; /* Ajuste do tamanho da fonte */
+    color: #bbb;
+    font-size: 0.95rem;
 }
 
-/* Ao focar */
 .register-page .form-control:focus {
-    border-color: #e91e63; /* Rosa vibrante ao focar */
+    border-color: #e91e63;
     outline: none;
-    box-shadow: 0 0 5px #e91e63; /* Brilho leve */
+    box-shadow: 0 0 5px #e91e63;
 }
 
-/* Botão de registro */
 .register-page .btn-danger {
     width: 100%;
-    background-color: #8e44ad; /* Roxo forte */
+    background-color: #8e44ad;
     border: none;
     padding: 12px;
     font-size: 1rem;
@@ -61,24 +54,22 @@
 }
 
 .register-page .btn-danger:hover {
-    background-color: #732d91; /* Roxo mais escuro */
-    transform: scale(1.02); /* Efeito de crescimento leve */
+    background-color: #732d91;
+    transform: scale(1.02);
 }
 
-/* Link para login */
 .register-page .btn-link {
-    color: #e91e63; /* Rosa vibrante */
+    color: #e91e63;
     font-size: 0.9rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .register-page .btn-link:hover {
-    color: #ff4081; /* Rosa mais claro */
+    color: #ff4081;
     text-decoration: underline;
 }
 
-/* Margens e espaçamentos */
 .register-page .mt-3 {
     margin-top: 20px;
 }
@@ -91,14 +82,12 @@
     margin-top: 15px;
 }
 
-/* Texto do rodapé */
 .register-page p {
     font-size: 0.9rem;
     text-align: center;
-    color: #bbb; /* Texto mais claro */
+    color: #bbb;
 }
 
-/* Ajustes responsivos */
 @media (max-width: 768px) {
     .register-page .container {
         padding: 20px;

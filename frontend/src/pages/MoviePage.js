@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import api from '../services/api';
-import './MoviePage.css'; // Importe a folha de estilos
+import './MoviePage.css'; 
 import { toast } from 'react-toastify';
 
 function MoviePage() {
@@ -53,11 +53,11 @@ function MoviePage() {
 
     const getBadgeColor = (score) => {
         if (score >= 8) {
-          return '#4CAF50'; // Um verde mais suave (menos saturado)
+          return '#4CAF50'; 
         } else if (score >= 5) {
-          return '#FFEB3B'; // Um amarelo mais suave (menos saturado)
+          return '#FFEB3B'; 
         } else {
-          return '#F44336'; // Um vermelho mais suave (menos saturado)
+          return '#F44336'; 
         }
       };
       
@@ -74,7 +74,7 @@ function MoviePage() {
                                 src={`${process.env.REACT_APP_API}/images/movies/${movie.photo}`}
                                 alt={movie.title}
                                 className="img-fluid rounded"
-                                onError={(e) => e.target.src = 'default-image.jpg'} // Fallback para imagem padrão
+                                onError={(e) => e.target.src = 'default-image.jpg'} 
                             />
                         </div>
                     </div>
