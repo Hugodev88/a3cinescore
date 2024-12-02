@@ -22,9 +22,4 @@ Clone o repositório para sua máquina local:
 ```bash
 git clone <URL_DO_REPOSITORIO>
 cd cinescore
-
-## Instale as dependências do backend:
-
-```bash
-cd server
-npm install
+```
