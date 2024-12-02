@@ -20,6 +20,33 @@ CineScore é um site de review de filmes, onde usuários podem cadastrar filmes,
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone [<URL_DO_REPOSITORIO>](https://github.com/Hugodev88/a3cinescore)
+git clone https://github.com/Hugodev88/a3cinescore
 cd cinescore
+```
+
+### Instale as dependências do backend:
+```bash
+cd backend
+npm install
+```
+### Instale as dependências do frontend:
+```bash
+cd frontend
+npm install
+```
+---
+
+## Como Rodar o Projeto
+
+### Inicie o backend:
+
+```bash
+cd backend
+npm start
+```
+
+### Inicie o frontend:
+```bash
+cd frontend
+npm start
 ```
