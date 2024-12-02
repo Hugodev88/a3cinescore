@@ -20,6 +20,6 @@ CineScore é um site de review de filmes, onde usuários podem cadastrar filmes,
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone [<URL_DO_REPOSITORIO>](https://github.com/Hugodev88/a3cinescore)
 cd cinescore
 ```
