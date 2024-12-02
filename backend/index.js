@@ -7,13 +7,11 @@ const ReviewRoutes = require('./routes/ReviewRoutes');
 
 const app = express();
 
-// Permite JSON com limite de 10MB
-app.use(express.json({ limit: '10mb' }));  // Aumenta o limite para 10 MB
+app.use(express.json({ limit: '10mb' }));  
 
-// Configuração de CORS
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'  // URL de origem permitida
+    origin: 'http://localhost:3000'  
 }));
 
 app.use(express.static('public'));
