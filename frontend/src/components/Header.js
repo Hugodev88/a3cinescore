@@ -24,7 +24,7 @@ const Header = () => {
                     ) : (
                         <>
                             <SearchBox />
-                            <Link className="link add" to="/movies/add">Adicionar Filme</Link>
+                            {/* <Link className="link add" to="/movies/add">Adicionar Filme</Link> */}
                             <Link className="link perfil" to="/profile">Perfil</Link>
                             <button
                                 className="btn btn-danger text-white"

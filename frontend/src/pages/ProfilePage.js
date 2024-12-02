@@ -107,13 +107,10 @@ const ProfilePage = () => {
                         </div>
                         <div className="card-body">
                             <div className="row">
-                                <div className="col-md-8">
+                                <div className="">
                                     <h5 className="card-title">Informações do Usuário</h5>
-                                    <p className="card-text">
+                                    <p className="card-text text-white">
                                         <strong>Email:</strong> {user.email}
-                                    </p>
-                                    <p className="card-text">
-                                        <strong>Quantidade de Avaliações:</strong> {user.reviewCount || 0}
                                     </p>
                                     <div className="d-flex justify-content-between">
                                         <button className="btn btn-warning btn-sm" onClick={() => navigate('/edit-profile')}>
