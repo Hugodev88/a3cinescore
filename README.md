@@ -1,6 +1,6 @@
 # CineScore
 
-CineScore é um site de review de filmes, onde usuários podem cadastrar filmes, escrever avaliações e conferir opiniões sobre diferentes títulos. O projeto utiliza uma stack moderna com React no frontend e Node.js/Express no backend, seguindo o padrão de arquitetura MVC e usando MongoDB como banco de dados.
+CineScore é um site de review de filmes, onde usuários podem escrever avaliações e conferir opiniões sobre diferentes títulos. O projeto utiliza uma stack moderna com React no frontend e Node.js/Express no backend, seguindo o padrão de arquitetura MVC e usando MongoDB como banco de dados.
 
 ---
 
